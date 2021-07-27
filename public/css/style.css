@@ -1,0 +1,66 @@
+:root{
+    --grey-color: #222;
+    --background-color: #fff;
+    --border-card-color: rgba(0,0,0,0.125);
+    --text-color: black;
+    --title-color: black;
+    --details-color: black;
+}
+
+.dark-theme{
+    --grey-color: #101316;
+    --background-color: #14181c;
+    --border-card-color: #34393d;
+    --text-color: #c6c6c6;
+    --title-color: #fff;
+    --details-color: #f4f4f4;
+}
+
+body{
+    background: var(--background-color); 
+    color: var(--text-color);
+}
+
+.navbar{
+    background: var(--grey-color);
+}
+
+.navbar-brand{
+    color: var(--title-color);
+}
+
+#icon{
+    color: rgba(255,255,255,.55);
+    cursor: pointer;
+}
+
+.card{
+    background: var(--background-color); 
+    border: 1px solid var(--border-card-color);
+}
+
+.card-title{
+    color: var(--title-color);
+}
+
+.card-link{
+    text-decoration: none;
+    color: #fc6a03;
+}
+
+.card-link:hover{
+    color: #B34B00;
+}
+
+.card-details{
+    color: var(--details-color);
+}
+
+.card-content{
+    text-align: justify;
+}
+
+footer{
+    background: var(--grey-color); 
+    height: 250px;
+}
