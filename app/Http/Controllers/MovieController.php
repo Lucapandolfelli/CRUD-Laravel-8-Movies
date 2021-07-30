@@ -17,7 +17,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies= Movie::paginate(5);
+        $movies = Movie::with('genres')->paginate(5);
         return view('movies.index', compact('movies'));
     }
 
@@ -106,14 +106,14 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
-        $request->validate([
+        /* $request->validate([
             'title' => 'required',
             'year' => 'required',
             'director_id' => 'required',
             'genres[]' => 'required',
             'description' => 'required',
             'plot' => 'required'
-        ]);
+        ]); */
         
         $mov = $request->all();
         $genres = $request->genres;
@@ -130,9 +130,9 @@ class MovieController extends Controller
         $movie->update($mov);
         
 
-        /* if ($request->genres) {
+        if ($request->genres) {
             $movie->genres()->sync($genres);
-        } */
+        }
 
         return redirect()->route('movies.index');
     }

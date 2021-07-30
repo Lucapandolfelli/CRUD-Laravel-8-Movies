@@ -60,6 +60,10 @@ body{
     text-align: justify;
 }
 
+.page-title{
+    color: var(--title-color);
+}
+
 footer{
     background: var(--grey-color); 
     height: 250px;

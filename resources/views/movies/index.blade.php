@@ -32,9 +32,13 @@
                                 <td scope="row">{{ $movie->director->name }}</td>
                                 <td scope="row">{{ $movie->description }}</td>
                                 <td scope="row">
-                                    <img src="/images/{{ $movie->poster }}" width="30%">
+                                    <img src="/images/{{ $movie->poster }}" width="50%">
                                 </td>
-                                <td scope="row">{{ $movie->year }}</td>
+                                <td scope="row">
+                                    @foreach($movie->genres as $genre)
+                                        {{ $genre->name }}
+                                    @endforeach
+                                </td>
                                 <td scope="row">
                                     <div class="d-flex justify-content-center">
                                         <a class="me-2 btn btn-primary" href="{{ route('movies.edit', $movie->id) }}">Edit</a>

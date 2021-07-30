@@ -1,6 +1,6 @@
 <x-template>
     @section('main-content')
-        <h1 class="text-center">Directors</h1>
+        <h1 class="text-center page-title">Directors</h1>
         <div class="my-4 container d-flex justify-content-center">
             <div class="row">
                 @foreach($directors as $director)
