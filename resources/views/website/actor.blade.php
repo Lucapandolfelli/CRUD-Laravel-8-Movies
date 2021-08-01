@@ -14,11 +14,15 @@
                 <h2 class="mb-3 card-title">{{ $actor->name }}</h2>
                 <p class="card-details"><b>Nationality:</b> {{ $actor->nationality }} - <b>Age:</b> <?php echo $age; ?> years</p>
                 <p class="mt-2 card-content">{{ $actor->biography }}</p>
-                <ul>
-                    @foreach($actor->actors_movies as $movies)
-                        <li><a href="{{ route('movie', $movies->id) }}">{{ $movies->title }}</a></li>
-                    @endforeach
-                </ul>
+            </div>
+        </div>
+        <hr>
+        <h4 class="mt-4 text-uppercase card-details">> Films of {{ $actor->name }}</h4>
+        <div class="my-4 container d-flex">
+            <div class="row">
+                @foreach($actor->actors_movies as $movie)
+                    <x-movie-card-single :movie="$movie"></x-movie-card>
+                @endforeach
             </div>
         </div>
     </div>

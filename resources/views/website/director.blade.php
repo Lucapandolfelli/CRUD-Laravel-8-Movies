@@ -21,7 +21,7 @@
         <div class="my-4 container d-flex">
             <div class="row">
                 @foreach($movies as $movie)
-                    <x-movie-card :movie="$movie"></x-movie-card>
+                    <x-movie-card-single :movie="$movie"></x-movie-card>
                 @endforeach
             </div>
         </div>
