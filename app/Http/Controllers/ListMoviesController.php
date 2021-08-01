@@ -15,7 +15,7 @@ class ListMoviesController extends Controller
      */
     public function index()
     {
-        $movies = Movie::with('genres')->paginate(2);
+        $movies = Movie::with('genres')->paginate(6);
         return view('website.movies', compact('movies'));
     }
 

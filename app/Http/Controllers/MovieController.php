@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\Movie;
 use App\Models\Director;
 use App\Models\Genre;
+use App\Models\Actor;
 
 class MovieController extends Controller
 {
@@ -28,9 +29,10 @@ class MovieController extends Controller
      */
     public function create()
     {
+        $actors = Actor::all();
         $genres = Genre::all();
         $directors = Director::all();
-        return view('movies.create', compact('directors', 'genres'));
+        return view('movies.create', compact('directors', 'genres', 'actors'));
     }
 
     /**
@@ -61,9 +63,13 @@ class MovieController extends Controller
 
         $mov = Movie::create($movie);
         $genres = $request->genres;
+        $actors = $request->actors;
 
         if ($request->genres) {
             $mov->genres()->attach($genres);
+        }
+        if ($request->actors) {
+            $mov->actors()->attach($actors);
         }
         return redirect()->route('movies.index');
     }
@@ -90,9 +96,10 @@ class MovieController extends Controller
         $movies = Movie::with('genres')->get();
         foreach ($movies as $movie) {
             if ($movie->id == $id) {
+                $actors = Actor::all();
                 $genres = Genre::get();
                 $directors = Director::all();
-                return view('movies.edit', compact('directors', 'genres', 'movie'));
+                return view('movies.edit', compact('directors', 'genres', 'movie', 'actors'));
             }
         }
     }
@@ -117,6 +124,7 @@ class MovieController extends Controller
         
         $mov = $request->all();
         $genres = $request->genres;
+        $actors = $request->actors;
 
         if($poster = $request->file('poster')){
             $savePoster = 'images/';
@@ -132,6 +140,10 @@ class MovieController extends Controller
 
         if ($request->genres) {
             $movie->genres()->sync($genres);
+        }
+
+        if ($request->actors) {
+            $movie->actors()->sync($actors);
         }
 
         return redirect()->route('movies.index');

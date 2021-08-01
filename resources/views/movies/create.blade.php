@@ -46,6 +46,14 @@
                             <textarea name="plot" class="form-control" id="floatingInput" style="height: 100px"></textarea>
                             <label class="ms-2" for="floatingInput">Plot</label>
                         </div>
+                        <div class="col-md-6 form-floating mb-3">
+                            <select class="form-select h-auto" name="actors[]" multiple="multiple">
+                                @foreach($actors as $actor)
+                                    <option value="{{ $actor->id }}">{{ $actor->name }}</option>
+                                @endforeach
+                            </select>
+                            <label class="ms-2" for="floatingSelect">Actors</label>
+                        </div>
                         <div class="col-md-12 form-floating">
                             <input type="file" name="poster" class="form-control" id="floatingInput">
                             <label class="ms-2" for="floatingInput">Poster</label>
@@ -60,3 +68,4 @@
         </div>
     </div>
 </x-app-layout>
+

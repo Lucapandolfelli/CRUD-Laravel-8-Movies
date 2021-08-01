@@ -46,12 +46,20 @@
                             @endforeach
                         </div>
                         <div class="col-md-12 form-floating mb-3">
-                            <textarea style="height: 100px" name="description" class="form-control" id="floatingInput">{{ $movie->description }}</textarea>
+                            <textarea name="description" class="h-auto form-control" id="floatingInput">{{ $movie->description }}</textarea>
                             <label class="ms-2" for="floatingInput">Description</label>
                         </div>
                         <div class="col-md-12 form-floating mb-3">
                             <textarea style="height: 100px" name="plot" class="form-control" id="floatingInput">{{ $movie->plot }}</textarea>
                             <label class="ms-2" for="floatingInput">Plot</label>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3">
+                            <select class="form-select h-auto" name="actors[]" multiple="multiple">
+                                @foreach($actors as $actor)
+                                    <option value="{{ $actor->id }}">{{ $actor->name }}</option>
+                                @endforeach
+                            </select>
+                            <label class="ms-2" for="floatingSelect">Actors</label>
                         </div>
                         <div class="col-md-12 form-floating">
                             <input value="{{ $movie->poster }}" type="file" name="poster" class="form-control" id="floatingInput">

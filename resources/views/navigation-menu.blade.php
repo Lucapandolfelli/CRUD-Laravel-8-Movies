@@ -21,6 +21,9 @@
                     <x-jet-nav-link style="text-decoration: none;" href="{{ route('directors.index') }}" :active="request()->routeIs('directors.index')">
                         {{ __('Directors') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link style="text-decoration: none;" href="{{ route('actors.index') }}" :active="request()->routeIs('actors.index')">
+                        {{ __('Actors') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link style="text-decoration: none;" href="{{ route('genres.index') }}" :active="request()->routeIs('genres.index')">
                         {{ __('Genres') }}
                     </x-jet-nav-link>

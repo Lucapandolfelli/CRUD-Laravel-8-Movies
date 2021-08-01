@@ -20,6 +20,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('movies') ? 'active' : '' }}" href="{{ route('movies') }}">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('actors') ? 'active' : '' }}" href="{{ route('actors') }}">Actors</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('directors') ? 'active' : '' }}" href="{{ route('directors') }}">Directors</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a></li>
                 </ul>
@@ -31,7 +32,19 @@
         @yield('main-content')
     </div>
     <footer>
-        <h3 class="text-center text-white pt-4">Footer</h3>
+        <div class="container">
+            <div class="row">
+                <h3 class="text-center text-white pt-4">Footer</h3>
+            </div>
+        </div>
+        <?php
+            use Carbon\Carbon;
+            $date = Carbon::now();
+            $date = $date->format('Y');
+        ?>
+        <div class="row d-flex justify-content-center align-items-center" style="margin: 0;">
+            <p class="copyright-section">&copy; Movies <?php echo $date ?> - Created by <a class="copyright-link" href="#">Luca Pandolfelli</a></p>
+        </div>
     </footer>
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
