@@ -24,6 +24,11 @@ Route::get('/', function () {
     return view('website.home');
 })->name('home');
 
+Route::get('/luca', function () {
+    $users = User::all();
+    dd($users);
+});
+
 Route::get('/movies', [App\Http\Controllers\ListMoviesController::class, 'index'])->name('movies');
 Route::get('/movie/{id}', [ListMoviesController::class, 'show'])->name('movie');
 Route::get('/genre/{genre}', [ListMoviesController::class, 'genre'])->name('genre');
