@@ -7,6 +7,7 @@
     --details-color: black;
     --copyright-background: #333;
     --copyright-text: #c4c4c4;
+    --page-nav-btn-hover: #f4f4f4;
 }
 
 .dark-theme{
@@ -18,6 +19,7 @@
     --details-color: #f4f4f4;
     --copyright-background: #0b0d0f;
     --copyright-text: #8a8888;
+    --page-nav-btn-hover: #101316;
 }
 
 body{
@@ -82,7 +84,7 @@ body{
 
 .page-nav-btn:hover{
     color: var(--text-color);
-    background: #101316;
+    background: var(--page-nav-btn-hover);
 }
 
 .page-btn-active{
@@ -103,6 +105,14 @@ body{
 .btn-grey{
     background: #34393d;
     color: #f4f4f4;
+}
+
+.single-card-img{
+    transition: all 0.3s ease;
+}
+
+.single-card-img:hover{
+    filter:brightness(0.5);
 }
 
 footer{
